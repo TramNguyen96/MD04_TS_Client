@@ -1,0 +1,16 @@
+.home_page{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+
+    .home_page_content{
+        width: 100%;
+        min-width: 1440px;
+        height: 100%;
+
+        .content_body{
+            height: 100%;
+        }
+    }
+}

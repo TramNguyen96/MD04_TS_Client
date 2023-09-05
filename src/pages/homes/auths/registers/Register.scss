@@ -1,0 +1,43 @@
+.register{
+    margin-top: 1em;
+
+    .register_main {
+        width: 500px;
+        height: auto !important;
+        margin: auto;
+        color: $color_primary;
+        padding: 10px;
+
+        .register_header {
+            font-size: $size_h1;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .register_form {
+            padding: 1em;
+
+            label {
+                font-size: $size_label;
+                font-weight: lighter;
+                margin: 1em 0px;
+            }
+
+            input {
+                width: 450px;
+                height: 35px;
+                color: $color_tertiary;
+                border: 1px solid $color_tertiary;
+                padding: 1em;
+            }
+
+            .register_form_btn {
+                width: 450px;
+                height: 50px;
+                background-color: $color_primary;
+                color: $color_secondary;
+                margin-top: 1.5em;
+            }
+        }
+    }
+}
