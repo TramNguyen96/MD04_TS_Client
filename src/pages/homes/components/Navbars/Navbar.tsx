@@ -50,13 +50,9 @@ export default function Navbar() {
                     <Link to="/" className="item" key={Date.now() * Math.random()}>HOME</Link>
                     {
                         categories.map(category => (
-                            <Link to={`/${category.title}`} className="item" key={Date.now() * Math.random()} style={{ textTransform: 'uppercase' }} > {category.title}</Link>
+                            <Link to={`/category/${category.id}`} className="item" key={Date.now() * Math.random()} style={{ textTransform: 'uppercase' }} > {category.title}</Link>
                         ))
                     }
-                    {/* <Link to="/gift-set" className="item" key={Date.now() * Math.random()}>GIFTS & SETS</Link>
-          <Link to="/makeup" className="item" key={Date.now() * Math.random()}>MAKE UP</Link>
-          <Link to="/fragrance" className="item" key={Date.now() * Math.random()}>FRAGRANCE</Link>
-          <Link to="/services" className="item" key={Date.now() * Math.random()}>SERVICES</Link> */}
 
                 </div>
                 <div className="right_content">

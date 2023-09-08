@@ -1,0 +1,38 @@
+.product_collection{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    align-items: center;
+    width: 1200px;
+    margin: auto;
+    .product_collection_item {
+            width: 300px;
+            height: 650px;
+            color: $color_primary;
+            margin: 1em;
+    
+            .product_collection_item_img{
+
+                img{
+                    width: 300px;
+                    height: 400px;
+                    margin-top: 1.5em;
+                    object-fit: cover;
+                }
+            }
+    
+            .product_collection_item_h3 {
+                font-size: 20px;
+                font-weight: bold;
+                margin-top: 1em;
+            }
+    
+            .product_collection_item_price {
+                font-size: 14px;
+                margin-top: 1em;
+                text-align: justify;
+    
+            }
+        }
+}
+

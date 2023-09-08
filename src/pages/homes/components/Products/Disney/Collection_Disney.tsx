@@ -1,7 +1,17 @@
 import './Collection_Disney.scss';
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import Slider from "react-slick";
+import api from '@services/apis'
+import { useParams } from 'react-router-dom';
 
+interface Category {
+  id: number;
+  img: string;
+  title: string;
+  des: string;
+  link: string;
+  banner: string;
+}
 
 export default class Collection_Disney extends Component {
   render() {
@@ -12,6 +22,29 @@ export default class Collection_Disney extends Component {
       slidesToShow: 3,
       slidesToScroll: 1
     };
+
+    // const { category } = useParams() as { category: string };
+    // const [pageData, setPageData] = useState<Category[]>([]);
+
+    // useEffect(() => {
+    //   api.categoryApi.findByCategotyId(category)
+    //     .then(res => {
+    //       if (res.status == 200) {
+    //         setPageData(res.data.data)
+    //       } else {
+    //         alert(res.data.message)
+    //       }
+    //     })
+    //     .catch(err => {
+    //       alert("Server Network Client")
+    //     })
+    // }, [category])
+
+    // useEffect(() => {
+    //   console.log('pageData', pageData);
+    // }, []);
+
+
     return (
       <div>
         <h2 className='product_collection_name'>Disney Fairy Tale Weddings</h2>

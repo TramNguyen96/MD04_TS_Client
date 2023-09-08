@@ -19,8 +19,9 @@ export default function RouteSetup() {
                     {RouteProduct}
                     {RouteCart}
                     {RouteAuth}
+
                     <Route path="/admin" element={Lazy(() => import("@pages/managers/Admin"))()}></Route>
-                    <Route path="/:category" element={Lazy(() => import("@pages/categories/Category"))()}></Route>
+                    <Route path="/category/:category" element={Lazy(() => import("@pages/categories/Category"))()}></Route>
 
                 </Route>
             </Routes >

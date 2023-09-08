@@ -6,6 +6,6 @@ export default {
     },
 
     findByCategotyId: async function(id: string) {
-        return await axios.get(import.meta.env.VITE_SV_HOST + "categories" + id)
+        return await axios.get(`${import.meta.env.VITE_SV_HOST}/categories/` + id)
     },
 }

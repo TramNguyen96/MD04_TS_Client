@@ -28,7 +28,6 @@ export default function ManagerProduct() {
         />
     );
 
-    const imgPreviewRef = useRef();
     const [categories, setCategories] = useState([]);
     const [pictures, setPictures] = useState<Picture[]>([]);
     const [avatarFile, setAvatarFile] = useState<File | null>(null);
