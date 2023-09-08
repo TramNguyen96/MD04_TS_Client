@@ -6,7 +6,7 @@ export default function DropDown() {
         window.location.reload();
     }
     return (
-        <div className="dropdown" style={{ position: 'absolute', bottom: '5%', right: '0', zIndex: '100' }}>
+        <div className="dropdown" style={{ position: 'fixed', top: '90%', bottom: '5%', right: '0', zIndex: '100' }}>
             <button
                 className="btn btn-primary dropdown-toggle"
                 type="button"

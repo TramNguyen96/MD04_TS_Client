@@ -15,15 +15,13 @@ export default function Footer() {
                             {/*Grid row*/}
                             <div className="row mt-4">
                                 {/*Grid column*/}
-                                <div className="col-lg-4 col-md-12 mb-4 mb-md-0">
-                                    <h5 className="text-uppercase mb-4">About company</h5>
-                                    <p>
-                                        At vero eos et accusamus et iusto odio dignissimos ducimus qui
-                                        blanditiis praesentium voluptatum deleniti atque corrupti.
+                                <div className="col-lg-5 col-md-12 mb-4 mb-md-0">
+                                    <h5 className="text-uppercase mb-4">About Us</h5>
+                                    <p style={{ width: '450px' }}>
+                                        As a brand whose main inspiration stems from nature, Catherine Deane feels the direct impact of the effects the fashion industry has on the environment.
                                     </p>
-                                    <p>
-                                        Blanditiis praesentium voluptatum deleniti atque corrupti quos
-                                        dolores et quas molestias.
+                                    <p style={{ width: '450px' }}>
+                                        This is why we choose to be part of the slow fashion movement by creating quality garments that are kinder to the planet and build sustainable futures for communities.
                                     </p>
                                     <div className="mt-4">
                                         {/* Facebook */}
@@ -47,9 +45,9 @@ export default function Footer() {
                                 </div>
                                 {/*Grid column*/}
                                 {/*Grid column*/}
-                                <div className="col-lg-4 col-md-6 mb-4 mb-md-0">
-                                    <h5 className="text-uppercase mb-4 pb-1">Search something</h5>
-                                    <div className="form-outline form-white mb-4">
+                                <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
+                                    <h5 className="text-uppercase mb-4 pb-1">CONTACT</h5>
+                                    {/* <div className="form-outline form-white mb-4">
                                         <input
                                             type="text"
                                             id="formControlLg"
@@ -70,7 +68,7 @@ export default function Footer() {
                                             />
                                             <div className="form-notch-trailing" />
                                         </div>
-                                    </div>
+                                    </div> */}
                                     <ul className="fa-ul" style={{ marginLeft: "1.65em" }}>
                                         <li className="mb-3">
                                             <span className="fa-li">
@@ -129,9 +127,9 @@ export default function Footer() {
                             className="text-center p-3"
                             style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
                         >
-                            © 2020 Copyright:
-                            <a className="text-white" href="https://mdbootstrap.com/">
-                                MDBootstrap.com
+                            © 2023 Copyright:
+                            <a className="text-white" href="https://www.catherinedeane.co.uk/">
+                                Catherinedeane.co.uk
                             </a>
                         </div>
                         {/* Copyright */}

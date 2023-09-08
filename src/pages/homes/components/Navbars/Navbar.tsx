@@ -1,8 +1,39 @@
 import './Navbar.scss'
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import api from '@services/apis';
+import { Modal } from 'antd';
 
+interface Category {
+    id: number;
+    img: string;
+    title: string;
+    des: string;
+    link: string;
+    banner: string;
+}
 
 export default function Navbar() {
+    const [categories, setCategories] = useState<Category[]>([]);
+
+    useEffect(() => {
+        try {
+            api.categoryApi.findMany()
+                .then(res => {
+                    if (res.status !== 200) {
+                        Modal.warning(res.data.message)
+                    } else {
+                        setCategories(res.data.data)
+                    }
+                })
+
+        } catch (err) {
+            console.log("err", err);
+            alert("Server Network Client")
+
+        }
+    }, []);
+
     return (
         <div className='nav' >
             <div className="nav_content">
@@ -17,11 +48,11 @@ export default function Navbar() {
                 <div className="middle_content">
 
                     <Link to="/" className="item" key={Date.now() * Math.random()}>HOME</Link>
-                    {/* {
+                    {
                         categories.map(category => (
-                            <Link to={`/${category.id}`} className="item" key={Date.now() * Math.random()} > {category.title}</Link>
+                            <Link to={`/${category.title}`} className="item" key={Date.now() * Math.random()} style={{ textTransform: 'uppercase' }} > {category.title}</Link>
                         ))
-                    } */}
+                    }
                     {/* <Link to="/gift-set" className="item" key={Date.now() * Math.random()}>GIFTS & SETS</Link>
           <Link to="/makeup" className="item" key={Date.now() * Math.random()}>MAKE UP</Link>
           <Link to="/fragrance" className="item" key={Date.now() * Math.random()}>FRAGRANCE</Link>

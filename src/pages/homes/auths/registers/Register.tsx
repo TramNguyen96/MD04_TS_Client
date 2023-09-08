@@ -52,6 +52,8 @@ function Register() {
                 }
             })
             .catch(err => {
+                console.log("err", err);
+
                 Modal.success({
                     content: "Server Network!",
                     okText: "Again"
@@ -59,6 +61,7 @@ function Register() {
             })
 
         setLoad(false);
+
     }
     return (
         <div className='register'>
@@ -78,7 +81,7 @@ function Register() {
                         <input type="text" name="userName" /><br />
 
                         <label htmlFor="">Email</label><br />
-                        <input type="email" name="email" /><br />
+                        <input type="text" name="email" /><br />
 
                         <label htmlFor="">Password</label><br />
                         <input type="password" name="password" /><br />

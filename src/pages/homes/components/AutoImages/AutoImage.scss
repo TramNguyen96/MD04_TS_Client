@@ -1,0 +1,32 @@
+.real_weddings{
+    font-size: 30px;
+    font-weight: bold;
+    color: $color_primary;
+    border-left: 3px solid $color_primary;
+    margin-left: 2em;
+    padding-left: 1em;
+    margin: 2em;
+}
+
+.autoImage{
+   justify-content:center;
+   color: $color_primary;
+   margin-left: 5.5em;
+
+    .autoImage_img{
+        width: 300px;
+        height: 350px;
+        margin-top: 0.7em;
+        object-fit: cover;
+    }
+    .autoImage_date{
+        font-size: 15px;  
+        font-weight: bold;  
+        margin-top: 0.7em;
+    }
+    .autoImage_title{
+        width: 300px;
+        font-size: 20px;
+        margin-top: 0.7em;
+    }
+}

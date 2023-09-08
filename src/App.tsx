@@ -35,7 +35,6 @@ function App() {
 
   return (
     <>
-      <h1>User Login: {store.userStore.data?.firstName} {store.userStore.data?.lastName} </h1>
       {/* Routing Setup */}
       <RouteSetup />
       <DropDown />
