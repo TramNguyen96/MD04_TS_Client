@@ -15,6 +15,7 @@ interface Category {
 
 export default function Navbar() {
     const [categories, setCategories] = useState<Category[]>([]);
+    const [totalCart, setTotalCart] = useState(0);
 
     useEffect(() => {
         try {
@@ -33,6 +34,17 @@ export default function Navbar() {
 
         }
     }, []);
+
+    useEffect(() => {
+        let total = JSON.parse(localStorage.getItem("carts") ?? "[]");
+        let totalCart = total.reduce((result: number, nextItem: any) => {
+            return result += nextItem.quantity;
+
+        }, 0)
+        console.log("totalCart", totalCart);
+
+        setTotalCart(totalCart);
+    }, [totalCart])
 
     return (
         <div className='nav' >
@@ -64,11 +76,7 @@ export default function Navbar() {
                     <Link to="/carts" className="item_cart">
                         <i className="fa-solid fa-bag-shopping " style={{ color: "#000" }}></i>
                         <span className="item_cart_number" style={{ color: "#000" }}>
-                            {/* {
-                                cartStore.data?.cart_details?.reduce((result, nextItem) => {
-                                    return result += nextItem.quantity
-                                }, 0)
-                            } */}
+                            {totalCart}
                         </span>
                     </Link>
                 </div>

@@ -152,6 +152,7 @@ export default function ProductDetail() {
 
                 <button onClick={() => {
                     handleAddToCart(productDetail?.id!)
+                    window.location.href = '/carts'
                 }}
                     type="button" className="btn btn-outline-dark w-50"
 

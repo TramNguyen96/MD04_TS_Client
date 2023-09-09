@@ -23,6 +23,13 @@ interface CartItemDetail extends CartItem {
     productDetail: Product
 }
 
+interface newGuestReceipt {
+    email: string;
+    phoneNumber: string;
+    total: number;
+    payMode: string;
+}
+
 export default function Cart() {
     const [cart, setCart] = useState<CartItemDetail[]>([]);
     async function formatCart() {
@@ -41,6 +48,24 @@ export default function Cart() {
     useEffect(() => {
         formatCart();
     }, [])
+
+    function handleOrder() {
+        let newGuestReceipt: newGuestReceipt = {
+            email: "npt999@gmail.com",
+            phoneNumber: "0903594349",
+            total: cart.reduce((value, cur) => {
+                return value + cur.quantity * cur.productDetail.price
+            }, 0),
+            payMode: "CASH"
+        }
+        let guestReceiptDetailList = JSON.parse(localStorage.getItem("carts") ?? "[]")
+
+        api.purchaseApi.createGuestReceipt(newGuestReceipt, guestReceiptDetailList)
+            .then(res => {
+                console.log("res", res.data)
+            })
+    }
+
     return (
         <div>
             <h1>YOUR CART</h1>
@@ -59,6 +84,14 @@ export default function Cart() {
                     ))
                 }
             </ul>
+
+            <select>
+                <option value="CASH">Tiền Mặt</option>
+                <option disabled value="ZALO">Zalo</option>
+            </select>
+            <button onClick={() => {
+                handleOrder()
+            }}>Đặt Hàng</button>
         </div>
     )
 }
