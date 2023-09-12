@@ -1,15 +1,18 @@
 .product_detail {
     display: flex;
-    justify-content: space-around;
+    justify-content:center;
     margin: 2em auto;
     width: 1300px;
     height: 600px;
+    color: $color_primary;
 
     .product_detail_gallery {
+        width: 600px;
 
         .avatar_large {
             width: 400px;
             height: 400px;
+            overflow: hidden;
 
             .lightbox {
                 width: 350px;
@@ -20,59 +23,129 @@
                     width: 300px;
                     height: 380px;
                     margin-top: 10px;
-                    margin-left: 25px;
-                    object-fit: cover;
+                    margin-left: 70px;
+                    object-fit:contain;
                 }
             }
         }
+
+        .mini_pictures img:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+                transition: transform 0.3s ease-in-out;
+            
+        }
     }
 
     .content {
-        margin-left: 5em;
-    }
-}
+        width: 600px;
 
-.cartDetail {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 90%;
-    margin-left: 70px;
-    margin-top: 2em;
-
-    img {
-        width: 50%;
-    }
-    .content {
-        text-align: left;
-        margin-left: 100px;
-
-        .content-name {
-            font-size: 35px;
+        .content-name{
+            font-size: 30px;
             font-weight: bold;
-            color: #000;
+            margin-bottom: 0.5em;
         }
-
-        .content-price {
-            font-size: 20px;
-            margin-bottom: 20px;
-
+        .content-price{
+            margin-bottom: 0.5em;
         }
-
-        .content-quantity {
-            font-size: 18px;
-            font-weight: bold;
-            padding: 0 10px;
-            margin-bottom: 30px;
+        .content-quantity{
+            button{
+                border: 1px solid $color_tertiary;
+                width: 35px;
+                height: 35px;
+                font-size: 18px;
+                border-radius: 3px;
+                margin: 10px;
+            }
+            span{
+                font-size: 16px;
+            }
         }
+        .content-text-des{
+            margin-top: 1em;
 
-        .content-text {
-            margin-top: 50px;
-            font-size: 15px;
+            .content-text-des-title{
+                font-size: 18px;
+                margin-bottom: 0.5em;
+            }
+            .content-text-des-detail{
+                line-height: 2;
+                margin-bottom: 1em;
+            }
+        }
+        .add-cart-btn{
+            button{
+                width: 450px;
+                height: 50px;
+                background-color: $color_primary;
+                color: $color_secondary;
+                transition: transform 0.3s ease-in-out;
+                &:hover{
+                    background-color: #fff;
+                    color: #000;
+                    border: 3px solid #000;
+                    font-weight: bold;
+                }
+            }
+        }
+        .content-text-care{
+            margin-top: 2em;
+            .content-text-care-title{
+                font-size: 20px;
+                font-weight: bold;
+                border-top: 1px solid $color_primary;
+                margin: 0.5em 0px;
+                padding-top: 0.5em;
+            }
+            .content-text-care-detail{
+                line-height: 2;
+                margin-bottom: 1em;
+            }
         }
     }
 }
 
-.product_image img:hover {
-    transform: scale(1.1);
-}
+// .cartDetail {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     width: 90%;
+//     margin-left: 70px;
+//     margin-top: 2em;
+
+//     img {
+//         width: 50%;
+//     }
+//     .content {
+//         text-align: left;
+//         margin-left: 100px;
+
+//         .content-name {
+//             font-size: 35px;
+//             font-weight: bold;
+//             color: #000;
+//         }
+
+//         .content-price {
+//             font-size: 20px;
+//             margin-bottom: 20px;
+
+//         }
+
+//         .content-quantity {
+//             font-size: 18px;
+//             font-weight: bold;
+//             padding: 0 10px;
+//             margin-bottom: 30px;
+//         }
+
+//         .content-text {
+//             margin-top: 50px;
+//             font-size: 15px;
+//         }
+//     }
+// }
+
+// .product_image img:hover {
+//     transform: scale(1.1);
+// }

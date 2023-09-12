@@ -4,8 +4,7 @@ import api from '@services/apis';
 import { message, Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 import Loading from '../../../pages/homes/auths/loadings/Loading';
-
-
+import currency from 'currency.js';
 
 interface Category {
     id: string;
@@ -16,6 +15,31 @@ interface Picture {
     file: File;
     url: string;
 }
+
+// interface Category {
+//     id: string;
+//     title: string;
+//     active: boolean;
+//     avatar: string;
+//     img?: string;
+//     banner?: string;
+//     des?: string;
+//     link?: string;
+//     products: Product[]
+// }
+interface Product {
+    id: string;
+    name: string;
+    avatar: string;
+    price: number;
+    des?: string;
+    categoryId: string;
+    productPictures: {
+        id: string;
+        path: string;
+    }[];
+}
+
 
 export default function ManagerProduct() {
     const [load, setLoad] = useState(false);
@@ -36,6 +60,8 @@ export default function ManagerProduct() {
         price: "",
         des: ""
     });
+
+    const [listProduct, setListProduct] = useState<Product[]>([])
 
     useEffect(() => {
         api.categoryApi.findMany()
@@ -88,6 +114,28 @@ export default function ManagerProduct() {
 
         setLoad(false);
     }
+
+    useEffect(() => {
+        api.productApi.findMany()
+            .then(res => {
+                if (res.status == 200) {
+                    setListProduct(res.data.data)
+                } else {
+                    message.warning({
+                        content: res.data.message
+                    })
+                }
+            })
+            .catch(err => {
+                console.log("err", err);
+
+            })
+    }, [])
+
+    // useEffect(() => {
+    //     console.log("listProduct", listProduct);
+
+    // })
 
     return (
         <div>
@@ -180,6 +228,48 @@ export default function ManagerProduct() {
                 </form>
 
             </div>
+
+            <h2 className='list_product_title'>LIST PRODUCTS</h2>
+            <div className='list_product'>
+                <table className="table table-hover">
+                    <thead className="thead-dark">
+                        <tr className='list_product_thead'>
+                            <th>#</th>
+                            <th style={{ width: '45%' }}>List Pictures</th>
+                            <th style={{ width: '15%' }}>Product Name</th>
+                            <th style={{ width: '10%' }}>Price</th>
+                            <th style={{ width: '10%' }}>Collection</th>
+                            <th style={{ width: '10%' }}>Product ID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            listProduct.map((product, index) => (
+                                <tr className='list_product_tbody' key={product.id}>
+
+                                    <td>{index + 1}</td>
+                                    <td style={{ display: 'flex', flexWrap: 'wrap' }}>
+                                        {
+                                            product.productPictures?.map((picture) => (
+                                                <img src={picture.path} />
+                                            ))
+                                        }
+                                        {/* <img src={product.avatar} alt="" /> */}
+                                    </td>
+
+                                    <td> {product.name}</td>
+                                    <td>{currency(product.price).format()}</td>
+                                    <td>{product.categoryId}</td>
+                                    <td>{product.id}</td>
+
+                                </tr>
+                            ))
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+
         </div>
     )
 }

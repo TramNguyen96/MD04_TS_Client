@@ -43,8 +43,8 @@ function Register() {
                         okText: "Again"
                     })
                 } else {
-                    Modal.success({
-                        content: res.data.message,
+                    Modal.info({
+                        content: "Please check your email to verify your email!",
                         // onOk: () => {
                         //     window.location.href = "/login";
                         // },

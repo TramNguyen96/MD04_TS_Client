@@ -1,0 +1,71 @@
+.check_order{
+    color: $color_primary;
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    margin: auto;
+    .check_order_form{
+        width: 50%;
+        margin-top: 1em 0;
+        h1{
+            font-size: 30px;
+            font-weight: bold;
+            margin: 1em 0;
+            width: 60%;
+            text-align: center;
+        }
+        .check_order_form_input{
+            width: 60%;
+
+            .add-cart-btn {
+                    button {
+                        width: 100%;
+                        height: 50px;
+                        background-color: $color_primary;
+                        color: $color_secondary;
+                        transition: transform 0.3s ease-in-out;
+                        margin-bottom: 2em;
+
+                        &:hover {
+                            background-color: #fff;
+                            color: #000;
+                            border: 3px solid #000;
+                            font-weight: bold;
+                        }
+                    }
+                }
+        }
+    }
+
+    .check_order_list_receipt{
+       border: 1px solid $color_primary;
+       padding: 10px;
+       margin-top: 0.5em;
+    }
+}
+
+.btn_submit {
+    background-color: $color_primary;
+    width: 300px;
+    height: 50px;
+    position: relative;
+
+    .btn_loading {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba($color_secondary, 0.5);
+        width: 100%;
+        height: 100%;
+        display: none;
+    }
+
+    &.active {
+        background-color: rgba($color_secondary, 0.5);
+
+        .btn_loading {
+            display: block;
+        }
+    }
+}

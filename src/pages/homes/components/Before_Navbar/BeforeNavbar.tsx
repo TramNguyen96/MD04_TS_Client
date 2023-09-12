@@ -1,8 +1,10 @@
 import './BeforeNavbar.scss';
 import { useTranslation } from 'react-i18next';
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { StoreType } from "./stores";
+import { useDispatch, useSelector } from 'react-redux';
+import { StoreType } from "../../../../stores";
+import api from '@/services/apis';
+import { userAction } from '@/stores/slices/user.slice';
 
 
 export default function BeforeNavbar() {
@@ -11,6 +13,9 @@ export default function BeforeNavbar() {
   const store = useSelector(store => store) as StoreType;
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const [role, setRole] = useState()
+
 
   useEffect(() => {
     // Kiểm tra xem có token trong localStorage hay không
@@ -28,6 +33,15 @@ export default function BeforeNavbar() {
     }
   }, []);
 
+  useEffect(() => {
+    api.userApi.authentication({
+      token: localStorage.getItem("token")
+    }).then(res => {
+      setRole(res.data.data.isAdmin)
+    }).catch(err => {
+      // console.log("err", err);
+    })
+  }, [])
 
   return (
     <div>
@@ -43,14 +57,21 @@ export default function BeforeNavbar() {
                     <a href="/profile">
                       <img src="https://www.slotcharter.net/wp-content/uploads/2020/02/no-avatar.png" className="avatar_login" />
                     </a>
+
                     <p>Hi, {store.userStore.data?.firstName} {store.userStore.data?.lastName}
+                      {role === true ? (
+                        <a href="/admin" className="feature_textname_a">
+                          <i className="fa-solid fa-user-shield"></i>
+                        </a>
+                      ) : null}
 
                       <a href="#" className="feature_textname_a"
                         onClick={() => {
                           window.confirm("Are you sure want to logout?")
                           // dispatch(userActions.logOut())
+                          // dispatch(userAction.logOut(store.userStore.data))
                           localStorage.removeItem("token")
-                          // navigate("/")
+                          // localStorage.removeItem("carts")
                           window.location.reload()
                         }}
                       ><i className="fa-solid fa-arrow-right-from-bracket"></i></a></p>

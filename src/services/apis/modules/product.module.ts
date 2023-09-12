@@ -16,4 +16,12 @@ export default {
     findById: async function(productId: string) {
         return await axios.get(`${import.meta.env.VITE_SV_HOST}products/` + productId)
     },
+
+    search: async (searchKey: string) => {
+        return await axios.get(`${import.meta.env.VITE_SV_HOST}/products?search=${searchKey}`)
+    },
+
+    pagination: async function (maxItemPage: number, skipItem: number) {
+        return await axios.get(`${import.meta.env.VITE_SV_HOST}/products?maxItemPage=${maxItemPage}&skipItem=${skipItem}`);
+    },
 }

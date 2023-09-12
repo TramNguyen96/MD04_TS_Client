@@ -9,9 +9,10 @@
 
 .manager_product{
     display: flex;
-    justify-content:space-evenly;
+    justify-content:center;
     align-items: center;
     color: $color_primary;
+    margin-left: 5em;
 
     .manager_product_form{
 
@@ -36,7 +37,7 @@
     .manager_product_picture{
         .manager_product_picture_upload{
             width: 600px;
-
+            margin-left: 5em;
             label{
                 margin: auto;
                 width: 400px;
@@ -50,8 +51,8 @@
 
                 img{
                     margin-top: 1em;
-                    width: 120px;
-                    height: 150px;
+                    width: 80px;
+                    height: 100px;
                     margin-right: 30px;
                     object-fit: cover;
                 }
@@ -61,13 +62,48 @@
 
 }
 
+.list_product_title{
+    font-size: 30px;
+    font-weight: bold;
+    color: $color_primary;
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+    border-top: 1px solid $color_tertiary;
+    padding-top: 1em;
+}
+.list_product{
+    width: 90%;
+    margin: 2em auto;
+    table{
+        color: $color_primary;
+    }
+
+    .list_product_thead{
+        background-color: #000;
+        color: #fff;
+        th{
+            // font-weight: bold;
+        }
+    }
+    .list_product_tbody{
+        td{
+            img{
+                width: 100px;
+                height: 100px;
+                object-fit: contain;
+            }
+        }
+    }
+}
+
 .register_form_btn {
     width: 450px;
     height: 50px;
     background-color: $color_primary;
     color: $color_secondary;
     margin-top: 2em;
-    margin-left: 35%;
+    margin-left: 40%;
 }
 
 .btn_submit {

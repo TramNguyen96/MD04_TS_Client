@@ -34,29 +34,30 @@
             justify-content: space-between;
             font-size: 1em;
 
-
             .feature_textname {
-                margin-bottom: 15px;
+                // margin-bottom: 15px;
                 img {
                     width: 20px;
                     height: 20px;
                     border-radius: 50%;
                     position: absolute;
-                    margin-left: 270px;
+                    margin-left: 265px;
+                    margin-bottom: 50px;
                 }
 
                 p {
                     font-size: 0.7em;
                     margin-top: 15px;
                     margin-left: 300px;
+                    margin-bottom: 15px;
                 }
 
                 .feature_textname_a {
                     text-decoration: none;
                     color: #fff;
                     margin-left: 10px;
+                    margin-bottom: 15px;
                 }
-
                 .feature_item_login_register {
                     margin-left: 180px;
                     // margin-bottom: 8px;
@@ -97,3 +98,4 @@
         }
     }
 }
+

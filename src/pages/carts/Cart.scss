@@ -1,0 +1,43 @@
+.cart-total{
+    display: flex;
+    justify-content:space-around;
+    color: $color_primary;
+    margin: 2em ;
+
+    .cart-total-table{
+        width: 1000px;
+    }
+
+    .cart-total-payment{
+        width: 400px;
+    }
+}
+.content-quantity {
+    button {
+        border: 1px solid $color_tertiary;
+        width: 25px;
+        height: 25px;
+        font-size: 16px;
+        border-radius: 3px;
+        margin: 10px;
+    }
+
+    span {
+        font-size: 16px;
+    }
+}
+.payment-btn{
+    width: 310px;
+    height: 50px;
+    background-color: $color_primary;
+    color: $color_secondary;
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+        background-color: #fff;
+        color: #000;
+        border: 3px solid #000;
+        font-weight: bold;
+    }
+        
+}

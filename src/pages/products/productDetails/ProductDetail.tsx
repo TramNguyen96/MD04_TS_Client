@@ -46,10 +46,10 @@ export default function ProductDetail() {
             })
     }, [])
 
-    useEffect(() => {
-        console.log("productDetail", productDetail);
+    // useEffect(() => {
+    //     console.log("productDetail", productDetail);
 
-    })
+    // })
 
     function handleAddToCart(productId: string) {
         let carts: CartItem[] = JSON.parse(localStorage.getItem("carts") ?? "[]");
@@ -90,7 +90,7 @@ export default function ProductDetail() {
                 >
                     <div className="row shadow-5" style={{ width: '450px', height: '400px' }}>
                         <div className="col-12 avatar_large">
-                            <div className="lightbox">
+                            <div className="lightbox bg-image hover-zoom">
                                 <img
                                     src={avatar == '' ? productDetail?.avatar : avatar}
                                     alt="Gallery image 1"
@@ -100,7 +100,7 @@ export default function ProductDetail() {
                         </div>
                         {
                             productDetail?.productPictures.map((picture, index) => (
-                                <div className="col-3" style={{ marginTop: '0.5em' }}>
+                                <div className="col-3 mini_pictures" style={{ marginTop: '0.5em' }}>
                                     <img onClick={() => {
                                         setAvatar(picture?.path);
                                     }}
@@ -121,42 +121,56 @@ export default function ProductDetail() {
             <div className='content'>
                 <div className='content-name'>{productDetail?.name}</div>
                 <div className='content-price'>{currency(productDetail?.price!).format()}</div>
-                <button type="button" className="btn btn-outline-dark"
-                    onClick={() => {
-                        if (quantity == 1) {
-                            alert("You can't buy less than one !")
-                        }
-                        if (quantity > 1) {
-                            setQuantity(quantity - 1)
-                        }
+                <div className='content-quantity'>
+                    <button type="button"
+                        onClick={() => {
+                            if (quantity == 1) {
+                                alert("You can't buy less than one !")
+                            }
+                            if (quantity > 1) {
+                                setQuantity(quantity - 1)
+                            }
+                        }}
+                    >-</button>
+                    <span>{quantity}</span>
+                    <button type="button"
+                        onClick={() => {
+
+                            setQuantity(quantity + 1)
+
+                        }}
+                    >+</button><br />
+                </div>
+                <div className='content-text-des' >
+                    <p className='content-text-des-title'>DESCRIPTION</p>
+                    <p className='content-text-des-detail'>{productDetail?.des}</p>
+                </div>
+                <div className='add-cart-btn'>
+                    <button onClick={() => {
+                        handleAddToCart(productDetail?.id!)
+                        window.location.href = '/carts'
                     }}
-                >-</button>
-                <span className='content-quantity'>{quantity}</span>
-                <button type="button" className="btn btn-outline-dark"
-                    onClick={() => {
+                        type="button"
 
-                        setQuantity(quantity + 1)
+                    >ADD TO BAGS</button>
+                </div>
 
-                    }}
-                >+</button><br />
+                <div className='content-text-care'>
+                    <p className='content-text-care-title'>DETAILS & CARE</p>
+                    <p className='content-text-care-detail'>
+                        <ul>
+                            <li>Delicate Dry Clean Only</li>
+                            <li>We Recommend Cleaning Directly After the Big Day to Avoid Stains</li>
+                        </ul>
+                    </p>
+                </div>
 
-                <p className='content-text'>
-                    <p>{productDetail?.des}</p>
-                    <ul>
-                        <li>Free express shipping</li>
-                        <li>Free returns</li>
-                        <li>2 years warranty</li>
-                    </ul>
-                    <p>Cherry flowers are always beautiful, even if they're square-shaped. The Quadro Cherry Blossom combines the beauty of pastel tones with the sophisticated shimmer of genuine mother of pearl. Incrusted in a case made from rose gold plated stainless steel, this monochrome watch balances color with fine detailing and clear design lines. Wear it in spring or whenever your outfits need to bloom.</p>
-                </p>
-
-                <button onClick={() => {
-                    handleAddToCart(productDetail?.id!)
-                    window.location.href = '/carts'
-                }}
-                    type="button" className="btn btn-outline-dark w-50"
-
-                >ADD TO BAGS</button>
+                <div className='content-text-care'>
+                    <p className='content-text-care-title'>DELIVERY & RETURNS</p>
+                    <p className='content-text-care-detail'>
+                        Please visit our Delivery & Returns  page for all shipping costs and full information.
+                    </p>
+                </div>
             </div>
 
         </div>

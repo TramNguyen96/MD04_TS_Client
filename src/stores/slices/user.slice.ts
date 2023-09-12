@@ -1,4 +1,4 @@
-import { ActionCreatorWithoutPayload, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 export interface UserState {
     isLogin: boolean,
@@ -18,6 +18,11 @@ const userSlice = createSlice({
             return {
                 isLogin: true,
                 data: action.payload
+            }
+        },
+        logOut: (state: UserState, action)=>{
+            return {
+                ...state, userInfor: null
             }
         }
         

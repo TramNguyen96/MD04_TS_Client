@@ -10,3 +10,11 @@
     box-sizing: border-box;
     font-family: $ff_all;
 }
+
+.modal-backdrop {
+    display: none !important;
+}
+
+// .show{
+//     display: none !important;
+// }

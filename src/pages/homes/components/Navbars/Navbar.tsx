@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import api from '@services/apis';
 import { Modal } from 'antd';
+import Search from './Search/Search';
 
 interface Category {
     id: number;
@@ -41,7 +42,7 @@ export default function Navbar() {
             return result += nextItem.quantity;
 
         }, 0)
-        console.log("totalCart", totalCart);
+        // console.log("totalCart", totalCart);
 
         setTotalCart(totalCart);
     }, [totalCart])
@@ -69,7 +70,7 @@ export default function Navbar() {
                 </div>
                 <div className="right_content">
                     {/* Search */}
-                    {/* <SearchByName /> */}
+                    <Search />
                     {/* Wishlist */}
                     <i className="fa-regular fa-heart" style={{ cursor: "pointer" }}></i>
                     {/* Cart */}

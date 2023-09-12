@@ -1,12 +1,19 @@
-import React from 'react'
+import './Admin.scss'
 import ManagerProduct from './ManagerProducts/ManagerProduct'
+import ManagerReceipt from './ManagerReceipts/ManagerReceipt'
+import ManagerUser from './ManagerUsers/ManagerUser'
 
 export default function Admin() {
     return (
         <div>
             <>
                 {/* Tabs navs */}
-                <ul className="nav nav-pills mb-3" id="ex-with-icons" role="tablist">
+                <ul className="nav nav-pills mb-3 admin" id="ex-with-icons" role="tablist">
+                    <li className="nav-item" role="presentation">
+                        <a href="/" >
+                            <i className="fa-solid fa-house" style={{ marginRight: '2em', marginTop: '1.5em' }}></i>
+                        </a>
+                    </li>
                     <li className="nav-item" role="presentation">
                         <a
                             className="nav-link active"
@@ -68,7 +75,7 @@ export default function Admin() {
                         role="tabpanel"
                         aria-labelledby="ex-with-icons-tab-2"
                     >
-                        Tab 2 content
+                        <ManagerUser />
                     </div>
                     <div
                         className="tab-pane fade"
@@ -76,7 +83,7 @@ export default function Admin() {
                         role="tabpanel"
                         aria-labelledby="ex-with-icons-tab-3"
                     >
-                        Tab 3 content
+                        <ManagerReceipt />
                     </div>
                 </div>
                 {/* Tabs content */}

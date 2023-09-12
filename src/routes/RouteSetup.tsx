@@ -17,13 +17,16 @@ export default function RouteSetup() {
                     <Route path="about" element={Lazy(() => import("@components/Test"))()}></Route>
                     <Route path="/" element={Lazy(() => import("./HomeBody"))()}></Route>
                     {RouteProduct}
-                    {RouteCart}
                     {RouteAuth}
 
-                    <Route path="/admin" element={Lazy(() => import("@pages/managers/Admin"))()}></Route>
                     <Route path="/category/:category" element={Lazy(() => import("@pages/categories/Category"))()}></Route>
+                    <Route path="/profile" element={Lazy(() => import("@pages/profile/Profile"))()}></Route>
 
                 </Route>
+                {RouteCart}
+
+                <Route path="/admin" element={Lazy(() => import("@pages/managers/Admin"))()}></Route>
+
             </Routes >
         </BrowserRouter >
     )

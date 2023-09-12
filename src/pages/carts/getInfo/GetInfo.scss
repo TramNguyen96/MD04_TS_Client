@@ -1,0 +1,22 @@
+.get_info{
+    width: 50%;
+    margin: auto;
+    color: $color_primary;
+}
+
+.payment-btn {
+    width: 310px;
+    height: 50px;
+    background-color: $color_primary;
+    color: $color_secondary;
+    transition: transform 0.3s ease-in-out;
+    margin-left: 25%;
+
+    &:hover {
+        background-color: #fff;
+        color: #000;
+        border: 3px solid #000;
+        font-weight: bold;
+    }
+
+}
